@@ -473,73 +473,73 @@
     margin: 20px auto 0;
     border-radius: 30px;
   }  
-
-  .map{
-    height: 100%;
-    width: 100%;
+ /* Ausleihen-Seite */
+  #map{
+    display: flex;
+    height: 600px;
+    width: 800px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    display: flex;
+    /* position: relative ;
+    margin: auto; */
+    margin-left: 80%;
+    transform: translate(-50%, -400%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .ausleihKnopf{
+    background-color: var(--second-color );
+    color: var(--white-color);
+    text-align: center;
+    padding: 13px;
+    font-size: 20px;
+    border-top-left-radius: 5px ;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .box select {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--second-color);
+    color: white;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+      /* position: flex; */
+    right: 0;
+    width: 20%;
+    /* height: 100%; */
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option {
+    padding: 30px;
   }
  
-
-/* Cookies */
-#cookiePopup {
-  background-color: #ffffff;
-  position: absolute;
-  font-size: 14px;
-  width: 70vw;
-  max-width: 42.85em;
-  box-shadow: 0 0 2em rgba(5, 0, 31, 0.15);
-  font-family: "Poppins", sans-serif;
-  text-align: justify;
-  line-height: 1.8em;
-  padding: 2em 1.4em;
-  border-radius: 6px;
-  transition: all 0.5s ease-in;
-}
-#cookiePopup img {
-  display: block;
-  width: 3.75em;
-  transform: translateZ(0);
-  position: relative;
-  margin: auto;
-}
-#cookiePopup p {
-  text-align: center;
-  margin: 1.4em 0;
-}
-#cookiePopup button {
-  background-color: var(--second-color-alt);
-  border: none;
-  color: #ffffff;
-  font-size: 1.2em;
-  padding: 1em 1.4em;
-  display: block;
-  position: relative;
-  margin: auto;
-  border-radius: 5px;
-}
-#cookiePopup a {
-  color: #6859fe;
-}
-.hide {
-  visibility: hidden;
-  bottom: 0;
-  right: 2em;
-}
-.show {
-  visibility: visible;
-  bottom: 2em;
-  right: 2em;
-}
-@media only screen and (max-width: 37.5em) {
-  #cookiePopup {
-    width: 100%;
-  }
-  .hide {
-    bottom: 2em;
-    right: 0;
-  }
-  .show {
-    right: 0;
-    bottom: 0;
-  }
-}
