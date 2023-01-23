@@ -32,6 +32,16 @@
     <script src="slider.js"></script>
 </section>
   
+<!-- Cookies -->
+	<div id="cookiePopup" class="hide">
+      <img src="https://img.favpng.com/4/16/3/computer-icons-portable-network-graphics-scalable-vector-graphics-comics-png-favpng-MZqwcKv8T748bagdvy3Aiwvt2.jpg" />
+      <p>
+	  Unsere Website verwendet Cookies, um Ihnen das Surfen zu erleichtern und relevante Informationen zu liefern. Bevor Sie unsere Website weiter nutzen, erklären Sie sich mit unserer <a href="#">Cookie-Richtlinie und dem Datenschutz</a> einverstanden.
+      </p>
+      <button id="acceptCookie">Akzeptieren</button>
+    </div>
+    <!-- Script -->
+    <script src="cookie.js"></script>
    
   <?php
     require("templates/tail.php");
