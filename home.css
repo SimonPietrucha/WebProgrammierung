@@ -40,7 +40,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: var(--dark-color); */
     padding: 1rem 2rem;
   }
   .company-logo {
@@ -110,14 +109,7 @@
     display: flex;
     border-radius: 10px;
   }
-  /* .home-computer-container {} */
-
   .slogan .company-title {
-    /* background: -webkit-linear-gradient(
-      120deg,
-      var(--primary-color-alt),
-      var(--primary-color)
-    ); */
     margin-right: 10%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-color);
@@ -126,11 +118,6 @@
     font-weight: 600;
   }
   .slogan .company-slogan {
-    /* background: -webkit-linear-gradient(
-      120deg,
-      var(--primary-color-alt),
-      var(--primary-color)
-    ); */
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--primary-color);;
     margin-top: 1rem;
@@ -347,9 +334,6 @@
     padding: 0.1rem 0;
     color: var(--white-color-alt);
   }
-  /* .footer-social {
-    display: flex;
-  } */
   .footer-items a{
     color:#fbfbfb;
   }
@@ -362,7 +346,6 @@
 
   .end-footer {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     background-color: var(--third-color);
@@ -386,7 +369,7 @@
   .designer:hover {
     text-decoration: underline;
   }
-  /* Kontakt-Seite */
+  /* ====Kontakt-Seite==== */
   .form {
     width: 60%;
     margin: 0 auto;
@@ -428,17 +411,6 @@
   .form #button-blue:hover {
     background-color: #00acc1;
   }
-  
-  
-  /* Kontakt - Email */
-    /* .container{
-      width: 100%;
-      height: 100vh;
-      background: #3e537c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    } */
   .form{
     background: #fff;
     display: flex;
@@ -473,40 +445,50 @@
     margin: 20px auto 0;
     border-radius: 30px;
   }  
- /* Ausleihen-Seite */
+
+
+
+        /* ====Ausleihen-Seite==== */
+
   #map{
     display: flex;
     height: 600px;
     width: 800px;
-    border: 1px solid black;
     border-radius: 10px;
     margin-left: 10%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 35px;
+  }
+  .formAusleihen{
+    height: 1px;
   }
   
   .box {
     display: flex;
-    /* position: relative ;
-    margin: auto; */
-    margin-left: 80%;
-    transform: translate(-50%, -400%);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    margin-left: 77%;
+    transform: translate(-50%, -700%);
+    border-radius: 5px;
+   
   }
   .ausleihKnopf{
+    border-radius: 5px;
     background-color: var(--second-color );
     color: var(--white-color);
     text-align: center;
     padding: 13px;
     font-size: 20px;
-    border-top-left-radius: 5px ;
-    border-bottom-left-radius: 5px;
+    
+  }
+  .box p{
+    transform: translate(-1%, 400%);
+    background-color: var(--second-color);
+    color: var(--white-color);
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
   }
   
   .box select {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
     background-color: var(--second-color);
     color: white;
     padding: 12px;
@@ -522,10 +504,10 @@
   .box::before {
     content: "\f13a";
     font-family: FontAwesome;
-      /* position: flex; */
+      position: flex;
     right: 0;
     width: 20%;
-    /* height: 100%; */
+    height: 100%;
     text-align: center;
     font-size: 28px;
     line-height: 45px;
