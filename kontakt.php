@@ -2,88 +2,56 @@
       require("templates/header.php");
 ?>
 
-    <!-- OFFER SECTION -->
-    <!-- <link rel="stylesheet" href="kontakt.css"> -->
-    <!-- <section class="container section-3"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 
-    <!-- <div class="form-container">
-        <form class="form" id="form1" onsubmit="sendEmail(); reset(); return false;">
-            <div id="form-div">
-        
-                <p class="name">
-                    <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
-                </p>
-                
-                <p class="email">
-                    <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
-                </p>
-                
-                <p class="text">
-                    <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
-                </p>
-                
-                
-                <div class="submit">
-                    <input type="submit" value="SEND" id="button-blue"/>
-                    <div class="ease"></div>
-                </div>
-            </div>    
-        </form>
-    </div> -->
+<!-- I need a container to host my contact form, also this container will act
+	as a css grid with two sections -->
+	<div class="contact-section">
+		<!-- In the first section we will have the contact-info -->
+		<div class="contact-info">
+			<h3>Stelle uns eine Frage</h3>
+			<p class="text">
+                Vielen Dank für Ihr Interesse an unserem Unternehmen. Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das Formular aus, um uns Ihre Anfrage zukommen zu lassen.
+			</p>
+			<p class="text">
+                Stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind, damit wir Ihre Anfrage schnell und effektiv bearbeiten können.
+			</p>
+			<img src="https://t4.ftcdn.net/jpg/02/98/41/23/240_F_298412362_ZNN72WoRPzM2xvGXkEv1A9hdqgBGdB62.jpg" alt="">
+		</div>
 
-    <div class="form-container">
-        <form class="form" id="form1" onsubmit="sendEmail(); reset(); return false;">
-            <div id="form-div">
-        
-                <p class="name">
-                    <input type="text" id="name" placeholder="Dein Name" required>
-                </p>
-                
-                <p class="email">
-                    <input type="email" id="email" placeholder="Email Adresse" required>
-                </p>
-                
-                <p class="text">
-                <textarea id="message" rows="4" placeholder="Wie können wir dir helfen?"></textarea>
-                </p>
-                
-                
-                <div class="submit">
-                    <input type="submit" value="SEND" id="button-blue"/>
-                    <div class="ease"></div>
-                </div>
-            </div>    
-        </form>
-    </div>
+		<!-- In the second section we will have our contact form -->
+		<form name="contact-form" action="" method="post" autocomplete="off">
+			<!-- Every input field will have his own container. -->
+			<div class="block">
+				<i class="fas fa-user"></i>
+				<input type="text" name="firstname" placeholder="Vorname">
+			</div>
 
-    <!-- <div class="container">
-        <form>
-            <h3>Kontakt</h3>
-            <input type="text" id="name" placeholder="Dein Name" required>
-            <input type="email" id="email" placeholder="Email Adresse" required>
-            <input type="text" id="phone" placeholder="Telefon-Nummer" required>
-            <textarea id="message" rows="4" placeholder="Wie können wir dir helfen?"></textarea>
-            <button type="submit">Senden</button>
-        </form>
-    </div> -->
+			<div class="block">
+				<i class="fas fa-envelope"></i>
+				<input type="text" name="email" placeholder="E-Mail">
+			</div>
 
-    <script https://smtpjs.com/v3/smtp.js></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-                Host : "smtp.elasticemail.com",
-                Username : "username",
-                Password : "password",
-                To : 'them@website.com',
-                From : "you@isp.com",
-                Subject : "This is the subject",
-                Body : "And this is the body"
-            }).then(
-            message => alert(message)
-            );
-        }
-    </script>
+            <!-- In home.css Zeile 283-292 und 534-537 auskommentieren!! -->
+			
+			<div class="block">
+				<i class="fas fa-comment-alt"></i>
+				<textarea name="message" placeholder="Schreibe deine Nachricht"></textarea>
+			</div>
+
+			<button type="submit">Senden <i class="fas fa-paper-plane"></i></button>
+
+			<p class="please-wait"></p>
+			<p class="error"></p>
+			<p class="success"></p>
+		</form>
+	</div>
+
+	<script src="kontakt.js"></script><!-- link to the javascript file -->
 
 
 <?php
