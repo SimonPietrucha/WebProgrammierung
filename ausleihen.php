@@ -1,30 +1,47 @@
 <?php 
       require("templates/header.php");
-?>
-        <!-- <iframe id = "map" width="625" height="550" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-        src="https://www.openstreetmap.org/export/embed.html?bbox=8.430976867675783%2C49.47944587036476%2C8.481273651123049%2C49.495559587548776&amp;layer=mapnik">
-        </iframe><br/>
-        <small>
-            <a href="https://www.openstreetmap.org/#map=15/49.4875/8.4561">Größere Karte anzeigen
-
-            </a>
-        </small> -->
- 
+?> 
+      <!-- Karteneinbindung zum Fahrzeug auswählen -->
       <link rel="stylesheet" href="leaflet.css" />
       <script src="leaflet.js"></script>
       <div id="map" ></div>
       <script src="map.js"></script>
-    
-    <div class="box">
-        <a class="ausleihKnopf" href="ausleihen.php"> Ausleihen </a>
-            <select>
-        <option>E-Scooter 1</option>
-        <option>E-Scooter 2</option>
-        <option>E-Bike 1</option>
-        <option>E-Bike 2</option>
-      </select>
-    </div>
-
+      <!-- Funktionen für ausleihen und zurückgeben -->
+      <div class="box">
+      <?php
+      require("connectDB.php");
+      require("loginSystem.php");
+        if(istEingeloggt()){
+          $benutzername = $_SESSION["benutzername"];
+        }
+        else{
+          echo("<p>Bitte erst einloggen.</p>");
+        }
+        if(isset($_POST["submit"])){
+          $ausgewählt = $_POST["fahrzeug"];
+          $erg = ausleihen ($benutzername, $ausgewählt);
+          echo ("<p>" . $erg . "</p>");
+        }
+        if(isset($_POST["abgeben"])){
+          $ausgewählt = $_POST["fahrzeug"];
+          $erg = zurückgeben ($benutzername, $ausgewählt);
+          echo ("<p>" . $erg . "</p>");
+        }
+      ?>
+      <!-- Auswahl des richtigen Fahrzeugs -->
+      </div>
+      <form class = "formAusleihen" action="ausleihen.php" method="post"> 
+      <div class="box">
+      <input class="ausleihKnopf" name="submit" Value="Ausleihen" type="submit"> 
+        <select name="fahrzeug">
+          <option value="E-Scooter 1">E-Scooter 1</option>
+          <option value="E-Scooter 2">E-Scooter 2</option>
+          <option value="E-Bike 1">E-Bike 1</option>
+          <option value="E-Bike 2">E-Bike 2</option>
+        </select>
+      <input class="ausleihKnopf" name="abgeben" Value="Ausleihe beenden" type="submit">
+      </div>  
+      </form>
 <?php
     require("templates/tail.php");
   ?>
