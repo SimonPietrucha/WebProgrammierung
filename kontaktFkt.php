@@ -1,57 +1,59 @@
+<?php 
+      require("templates/header.php");
+?>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+<!-- I need a container to host my contact form, also this container will act
+	as a css grid with two sections -->
+	<div class="contact-section">
+		<!-- In the first section we will have the contact-info -->
+		<div class="contact-info">
+			<h3>Stelle uns eine Frage</h3>
+			<p class="text">
+                Vielen Dank für Ihr Interesse an unserem Unternehmen. Wir freuen uns darauf, von Ihnen zu hören. Bitte füllen Sie das Formular aus, um uns Ihre Anfrage zukommen zu lassen.
+			</p>
+			<p class="text">
+                Stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind, damit wir Ihre Anfrage schnell und effektiv bearbeiten können.
+			</p>
+			<img src="https://t4.ftcdn.net/jpg/02/98/41/23/240_F_298412362_ZNN72WoRPzM2xvGXkEv1A9hdqgBGdB62.jpg" alt="">
+		</div>
+
+		<!-- In the second section we will have our contact form -->
+		<form name="contact-form" action="" method="post" autocomplete="off">
+			<!-- Every input field will have his own container. -->
+			<div class="block">
+				<i class="fas fa-user"></i>
+				<input type="text" name="firstname" placeholder="Vorname">
+			</div>
+
+			<div class="block">
+				<i class="fas fa-envelope"></i>
+				<input type="text" name="email" placeholder="E-Mail">
+			</div>
+
+            <!-- In home.css Zeile 283-292 und 534-537 auskommentieren!! -->
+			
+			<div class="block">
+				<i class="fas fa-comment-alt"></i>
+				<textarea name="message" placeholder="Schreibe deine Nachricht"></textarea>
+			</div>
+
+			<button type="submit">Senden <i class="fas fa-paper-plane"></i></button>
+
+			<p class="please-wait"></p>
+			<p class="error"></p>
+			<p class="success"></p>
+		</form>
+	</div>
+
+	<script src="kontakt.js"></script><!-- link to the javascript file -->
+
+
 <?php
-	// First of all, we need to check if there is a post request.
-	if(isset($_POST['message'])){
-		/* if we have a post request, we have to decode the json string that
-		we are receiving */
-		$data = json_decode($_POST['message']);
-		/* The decoded json string is now a php object */
-
-		/* Next i loop trough the object to check for empty fields.
-		I know that we have done this check in the javascript file, but never rely on front end validation.
-		Front end validation is only done for a better user experience. */
-		foreach ($data as $value) {
-			if(empty(trim($value))){
-				/* If there is an empty field, we send a message back to the javascript file. */
-				echo "Error: All fields are required";
-				exit(); /* and we stop the script here. */
-			}
-		}
-		/* If there are no empty fields, i create new variables containing the input values
-		just to keep our script simple, so we can understand what is going on. */
-		$firstname =  $data->name; /* Remember that $data is an object now */
-		$email =  $data->email;
-		$message = $data->message;
-		/* Now i will check if the incoming email's value is valid */
-		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-			/* if email is not valid, we send a server response with an error message */
-			echo "Error: Please enter a valid email";
-			exit();
-		}
-
-		/* Now since we are here in this line, our incoming data are correct
-		and we are going to send the email. */
-		
-		
-		/* SET THE EMAIL ADDRESS YOU WANT TO RECEIVE THE MESSAGES  */
-		/* =============================================== */
-		$to = "MartinSimonWP@gmail.com";
-		/* =============================================== */
-
-		
-		/* Next we have to add a subject */
-		$subject = $firstname . " has a question for you";
-		/* Next we are setting some basic headers */
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-		/* We have to add also a from header, because we want to know the email address from
-		the user who is contacting us. */
-		$headers .= 'From: '. $email . "\r\n";
-		/* Next we are sending the email */
-		$send = mail($to,$subject,$message, $headers);
-		/* And last we check if the mail() function was successful*/
-		if(!$send){
-			echo "Εrror: Message not send. Please try again";
-		}else{
-			echo "Message was send successfully";
-		}
-	}
+    require("templates/tail.php");
+  ?>

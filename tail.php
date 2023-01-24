@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="container end-footer">
-      <div class="copyright">copyright © 2023 - Present • <b>Roller-Verleih</b></div>
+      <div class="copyright">copyright © 2023 - Present • <b>City-Mobility</b></div>
     </div>
   </footer>
   </body>

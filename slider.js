@@ -1,3 +1,4 @@
+// Variablen definieren
 const indikatoren = document.getElementsByClassName("indikator");
 indikatoren[0].classList.add("aktiv");
 
@@ -5,7 +6,7 @@ const slides = document.getElementsByClassName("slide");
 slides[0].classList.add("aktiv");
 
 var aktuellerIndex = 0;
-
+//Umschalten mit Pfeil
 function umschalten(anzahl) {
     var neuerIndex = aktuellerIndex + anzahl;
 
@@ -19,7 +20,7 @@ function umschalten(anzahl) {
 
     springeZuEintrag(neuerIndex);
 }
-
+//Umschalten über Punkte
 function springeZuEintrag(neuerIndex) {
     indikatoren[aktuellerIndex].classList.remove("aktiv");
     slides[aktuellerIndex].classList.remove("aktiv");

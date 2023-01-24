@@ -1,32 +1,30 @@
 let popUp = document.getElementById("cookiePopup");
-//When user clicks the accept button
+//Wenn der User den Cookie akzeptiert
 document.getElementById("acceptCookie").addEventListener("click", () => {
-  //Create date object
   let d = new Date();
-  //Increment the current time by 1 minute (cookie will expire after 1 minute)
+  //Aktuelle Zeit um 1 erhöhen
   d.setMinutes(2 + d.getMinutes());
-  //Create Cookie withname = myCookieName, value = thisIsMyCookie and expiry time=1 minute
+  //Generiere Cookie withname = myCookieName, value = thisIsMyCookie und expiry time=1 minute
   document.cookie = "myCookieName=thisIsMyCookie; expires = " + d + ";";
-  //Hide the popup
+  //Verstecke das Popup
   popUp.classList.add("hide");
   popUp.classList.remove("show");
 });
-//Check if cookie is already present
+//Prüfen ob das Cookie schon exisiert
 const checkCookie = () => {
-  //Read the cookie and split on "="
   let input = document.cookie.split("=");
-  //Check for our cookie
+  //Nach Cookies Prüfen
   if (input[0] == "myCookieName") {
-    //Hide the popup
+    //popup verstecken
     popUp.classList.add("hide");
     popUp.classList.remove("show");
   } else {
-    //Show the popup
+    //popup zeigen
     popUp.classList.add("show");
     popUp.classList.remove("hide");
   }
 };
-//Check if cookie exists when page loads
+//prüfen ob Cookie vorhanden wenn die Seite geladen wird
 window.onload = () => {
   setTimeout(() => {
     checkCookie();

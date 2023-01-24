@@ -10,7 +10,7 @@
 <body>
   <header>
     <!-- Menü Leiste -->
-    <div class="company-logo">R</div>
+    <div class="company-logo">CM</div>
     <nav class="navbar">
       <ul class="nav-items">
         <li class="nav-item"><a href="index.php" class="nav-link">Startseite</a></li>
@@ -28,7 +28,7 @@
     <!-- Willkommens Abschnitt-->
     <section class="container section-1">
       <div class="slogan">
-        <h1 class="company-title">Roller-Verleih</h1>
+        <h1 class="company-title">City-Mobility</h1>
         <h2 class="company-slogan">
           Mit uns kommen sie immer ans Ziel
         </h2>

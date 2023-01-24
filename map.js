@@ -1,4 +1,5 @@
-let coordinates = [49.4887, 8.4663]; // <- Gegen eigene Koordinaten ersetzen
+//Variablen festlegen
+let coordinates = [49.4887, 8.4663]; 
 let tile_url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 let map = L.map('map').setView(coordinates, 15);
 
@@ -6,16 +7,6 @@ L.tileLayer(tile_url, {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
 }).addTo(map);
 
-// let icon = L.icon({
-// 	iconUrl: 'img/electric-scooter.png',
-// 	iconSize: [34, 47],
-// 	iconAnchor: [17, 47],
-// });
-// let iconB = L.icon({
-//     iconUrl: 'img/e-bike.png',
-//  	iconSize: [34, 47],
-//  	iconAnchor: [17, 47],
-// });
 var LeafIcon = L.Icon.extend({
     options: {
       iconSize: [34, 47],
@@ -29,6 +20,7 @@ var LeafIcon = L.Icon.extend({
   var bikeIcon = new LeafIcon({
     iconUrl: 'img/e-bike.png',
   })
+  //Marker auf Map setzen (später aus Datenbank)
 L.marker(coordinates, {icon: scootIcon}).addTo(map).bindPopup('Scooter 1');   
 L.marker(([49.48846, 8.46011]), {icon: scootIcon}).addTo(map).bindPopup('Scooter 2');
 L.marker(([49.4867, 8.4708]), {icon: bikeIcon}).addTo(map).bindPopup('Bike 1');
