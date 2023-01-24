@@ -1,0 +1,18 @@
+<web-app>
+<servlet>
+    <servlet-name>
+    CRM
+    </servlet-name>
+    <servlet-class>
+    CRM
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>
+    CRM
+    </servlet-name>
+    <url-pattern>
+    /CRM
+    </url-pattern>
+</servlet-mapping>
+</web-app>
