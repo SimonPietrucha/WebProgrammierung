@@ -11,22 +11,24 @@
       <?php
       require("connectDB.php");
       require("loginSystem.php");
+        $benutzername = null;
         if(istEingeloggt()){
           $benutzername = $_SESSION["benutzername"];
+          if(isset($_POST["submit"])){
+            $ausgewählt = $_POST["fahrzeug"];
+            $erg = ausleihen ($benutzername, $ausgewählt);
+            echo ("<p>" . $erg . "</p>");
+          }
+          if(isset($_POST["abgeben"])){
+            $ausgewählt = $_POST["fahrzeug"];
+            $erg = zurückgeben ($benutzername, $ausgewählt);
+            echo ("<p>" . $erg . "</p>");
+          }
         }
         else{
           echo("<p>Bitte erst einloggen.</p>");
         }
-        if(isset($_POST["submit"])){
-          $ausgewählt = $_POST["fahrzeug"];
-          $erg = ausleihen ($benutzername, $ausgewählt);
-          echo ("<p>" . $erg . "</p>");
-        }
-        if(isset($_POST["abgeben"])){
-          $ausgewählt = $_POST["fahrzeug"];
-          $erg = zurückgeben ($benutzername, $ausgewählt);
-          echo ("<p>" . $erg . "</p>");
-        }
+       
       ?>
       <!-- Auswahl des richtigen Fahrzeugs -->
       </div>
